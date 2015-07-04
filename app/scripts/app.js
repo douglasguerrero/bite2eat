@@ -20,6 +20,10 @@ angular
     'ngTouch'
   ])
   .config(function ($routeProvider) {
+
+    Parse.initialize("WSA1398Zaliy9pauhvHEg5uzfvrqwH1bXdmwRW7e", "4EiQQjH6Hm6Lfnl172GMNDCorWyghusvACWEhg9I");
+
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
