@@ -94,13 +94,13 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootSco
 		});
 	};
 
-	$scope.addOrder = function() {
+	$scope.addOrder = function(price) {
 		var Order = Parse.Object.extend("Order");
 		var order = new Order();
 
 		order.set("clientName", "Douglas Guerrero");
 		order.set("status", "Pending");
-		order.set("total", 1);
+		order.set("total", price);
 
 		order.save(null, {
 			success: function(order) {
