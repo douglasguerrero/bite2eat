@@ -81,3 +81,59 @@ body {
     border-bottom: 0;
   }
 }
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.snap-content .row {
+	margin: 10px;
+}
+
+.snap-content .row.fill{
+  height: 100%;
+}
+
+.snap-content .row .master {
+	float: left;
+	width: 20%;
+  padding: 10px;
+}
+
+.snap-content .row .detail {
+	float: right;
+	width: 80%;
+}
+
+.restaurant {
+  height: 90px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.restaurant p{
+  margin-bottom: 0;
+}
+
+.restaurant .brand-logo{
+  float: left;
+  margin-right: 20px;
+}
+
+.restaurant .brand-logo img{
+  width: 90px;
+}
+
+.restaurant .data{
+}
+
+.restaurant .data h3 {
+  margin-top: 5px;
+}
+
+.restaurant .load-details {
+  float: right;
+}
