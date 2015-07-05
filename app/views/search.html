@@ -4,13 +4,10 @@
 
 		</div>
 		<div class="input-group col-md-4">
-			<input type="text" class="search-query form-control"
-				placeholder="Your food choice: pizza, salad"
-				ng-model="searchValue"
-				ng-keyup="$event.keyCode == 13 && searchInput()"/>
+			<input type="text" class="search-query form-control" placeholder="Your food choice: pizza, salad" ng-model="searchValue" ng-keyup="$event.keyCode == 13 && searchInput()" />
 			<span class="input-group-btn">
-				<button class="btn btn-danger" type="button" ng-click="searchInput()" >
-				<span class=" glyphicon glyphicon-search"></span>
+				<button class="btn btn-danger" type="button" ng-click="searchInput()">
+					<span class=" glyphicon glyphicon-search"></span>
 				</button>
 			</span>
 		</div>
@@ -19,7 +16,7 @@
 
 <div class="row fill">
 	<div class="master">
-		<div class="" ng-controller="SearchCtrl" ng-repeat="row in results">
+		<div class="" ng-controller="SearchCtrl" ng-repeat="row in results" ng-init="results = []">
 			<div class="restaurant">
 				<div class="brand-logo">
 					<img class="responsive-image" src="{{row.attributes.brandLogoUrl}}" alt="img">
@@ -27,34 +24,35 @@
 
 				<div class="data">
 					<h3>{{row.attributes.name}}</h3>
-	        <p>
-						Address: {{row.attributes.address}} <br>
-						Phone: {{row.attributes.phone}}
+					<p>
+						Address: {{row.attributes.address}}
+						<br> Phone: {{row.attributes.phone}}
 					</p>
-					<div class="load-details">
-
-					</div>
 				</div>
+
+				<div class="next-quote" ng-click="menuItem(row.id)">
+				</div>
+
 			</div>
 		</div>
 
 	</div>
 
 	<div class="detail">
-		<div ng-repeat="row in menuItems">
-	<div class="item-menu-image">
-                    <img src="{{row.attributes.itemImageUrl}}" alt="img">
-                </div>
-                    <div style="padding-left:20px">
-                    <h3 class="title">{{row.attributes.name}}</h3>
-                    <em>
-                        {{row.attributes.description}}
-                    </em>
-                    </div>
-                    <a href="#" class="button center-button button-green full-bottom detected-button">Order</a>
-                    
-			
-		</div>
+		<div ng-controller="SearchCtrl" ng-repeat="item in menuItems" ng-init="menuItems = []">
+			<div class="item-menu-image">
+				<img src="{{item.attributes.itemImageUrl}}" alt="img">
+			</div>
+			<div style="padding-left:20px">
+				<h3 class="title">{{item.attributes.name}}</h3>
+				<em>
+					{{item.attributes.description}}
+				</em>
+			</div>
+			<a href="#" class="button center-button button-green full-bottom detected-button">Order</a>
+
+
 		</div>
 	</div>
+</div>
 </div>

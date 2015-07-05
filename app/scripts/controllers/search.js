@@ -17,6 +17,7 @@ angular.module('bite2eatApp')
 			query.containedIn("foodTypes", [$scope.searchValue.toLowerCase()]);
 			query.find({
 				success: function(results) {
+					console.log(results);
 					$scope.$apply(function() {
 						$scope.results = results;
 					});
@@ -28,9 +29,11 @@ angular.module('bite2eatApp')
 		};
 
 		$scope.menuItem = function(restaurantId) {
+			console.log(restaurantId);
 			var MenuItem = Parse.Object.extend("MenuItem");
 			var query = new Parse.Query(MenuItem);
-			query.get(restaurantId, {
+			query.equalTo("restaurantId", restaurantId);
+			query.find({
 				success: function(menuItems) {
 					$scope.$apply(function() {
 						$scope.menuItems = menuItems;
