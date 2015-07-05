@@ -7,12 +7,13 @@
 				</div>
 				<div class="data">
 					<h3>{{row.attributes.name}}</h3>
-					<p>
+
 						Address: {{row.attributes.address}}
 						<br> Phone: {{row.attributes.phone}}
 						<span ng-show="{{row.attributes.delivery}}"><br> Delivery Available <i class="tick-list delivery"></i></span>
 						<span ng-show="!{{row.attributes.delivery}}"><br> Delivery Unavailable <i class="delete-list delivery"></i></span>
-					</p>
+						<span ng-show="{{row.attributes.estimated}}"><br><i> Estimated time: {{row.attributes.estimated}} min </i></span>
+
 				</div>
 				<div class="next-quote" ng-click="menuItem(row.id)">
 				</div>
