@@ -9,6 +9,21 @@
  */
 angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScope) {
 
+		function loadNearByRestaurants() {
+			var Restaurant = Parse.Object.extend("Restaurant");
+			var query = new Parse.Query(Restaurant);
+			query.find({
+				success: function(results) {
+					$scope.$apply(function() {
+						$scope.results = results;
+					});
+				},
+				error: function(error) {
+					alert("Error: " + error.code + " " + error.message);
+				}
+			});
+		};
+
 		$scope.searchInput = function() {
 			var Restaurant = Parse.Object.extend("Restaurant");
 			var query = new Parse.Query(Restaurant);
@@ -58,4 +73,6 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScop
 			  }
 			});
 		};
+
+		loadNearByRestaurants();
 	});
