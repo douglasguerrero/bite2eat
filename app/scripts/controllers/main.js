@@ -9,7 +9,7 @@
  */
 angular.module('bite2eatApp')
   .controller('MainCtrl', function ($scope) {
-    this.awesomeThings = [
+    $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
@@ -22,13 +22,13 @@ angular.module('bite2eatApp')
     	var interested = new Interested();
     	interested.set("email",$scope.email);
     	interested.save(null, {
-		  success: function(result) {
+		  success: function() {
 		  	$scope.email = '';
 		  	$scope.$apply(function(){
             	$scope.success = true;
         	});
 		  },
-		  error: function(result, error) {
+		  error: function(error) {
 		  	$scope.success = false;
 		    alert('Failed to create new object, with error code: ' + error.message);
 		  }
