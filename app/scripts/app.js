@@ -36,6 +36,11 @@ angular
         controller: 'SearchCtrl',
         controllerAs: 'search'
       })
+      .when('/beta/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'home'
+      })
       .otherwise({
         redirectTo: '/'
       });
