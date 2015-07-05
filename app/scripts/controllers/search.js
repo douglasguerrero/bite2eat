@@ -8,8 +8,10 @@
  * Controller of the bite2eatApp
  */
 angular.module('bite2eatApp')
-	.controller('SearchCtrl', function($scope) {
+	.controller('SearchCtrl', function($scope,$rootScope) {
 			Parse.initialize("WSA1398Zaliy9pauhvHEg5uzfvrqwH1bXdmwRW7e", "4EiQQjH6Hm6Lfnl172GMNDCorWyghusvACWEhg9I");
+
+$rootScope.showHeader = true;
 
 			$scope.searchInput = function() {
 					var Restaurant = Parse.Object.extend("Restaurant");

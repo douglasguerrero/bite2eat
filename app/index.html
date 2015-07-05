@@ -51,6 +51,36 @@
 
       <div class="all-elements">
         <div class="snap-drawers">
+
+            <!-- Left Sidebar-->
+        <div class="snap-drawer snap-drawer-left">
+            <!--Sidebar Header-->
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-logo"></a>
+                <a href="#" class="sidebar-close"><i class="fa fa-times"></i></a>
+            </div>            
+            <div class="deco"></div>
+            <!--Page Breadcrumb-->
+            <div class="breadcrumb">Menu</div>
+            <div class="deco"></div>
+            <!--Simple Menu Item-->
+            <a class="menu-item active-menu" href="#/beta/search">
+                <i class="fa fa-search"></i>
+                <em>Search</em>
+                <i class="fa fa-circle"></i>
+            </a>
+            <div class="deco"></div>
+
+            <a class="menu-item" href="#/beta/dashboard/orders">
+                <i class="fa fa-list-alt"></i>
+                <em>Orders</em>
+                <i class="fa fa-circle"></i>
+            </a>
+            <div class="deco"></div>
+            
+           
+              
+        </div>
             
             <!-- Right Sidebar -->
             <div class="snap-drawer snap-drawer-right">
@@ -70,8 +100,8 @@
             </div>
         </div>
       <!-- Page Header -->
-      <div class="header">
-          <!-- <a class="open-nav" href="#"><i class="fa fa-navicon"></i></a> -->
+      <div class="header" ng-controller="HeaderCtrl">
+          <a ng-show="showHeader" class="open-nav" href="#"><i class="fa fa-navicon"></i></a> 
           <!--<a class="header-logo" href="#"></a>-->
           <a class="header-message" href="#">Bite 2 Eat - Coming Soon!</a>
           <a class="open-socials" href="#"><i class="fa fa-share-alt"></i></a>
@@ -125,6 +155,8 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/search.js"></script>
+        <script src="scripts/controllers/orders.js"></script>
+        <script src="scripts/controllers/header.js"></script>
         <!-- endbuild -->
 </body>
 </html>

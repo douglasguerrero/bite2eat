@@ -40,6 +40,11 @@ angular
         controller: 'SearchCtrl',
         controllerAs: 'search'
       })
+      .when('/beta/dashboard/orders', {
+        templateUrl: 'views/orders.html',
+        controller: 'OrdersCtrl',
+        controllerAs: 'Orders'
+      })
       .otherwise({
         redirectTo: '/'
       });
