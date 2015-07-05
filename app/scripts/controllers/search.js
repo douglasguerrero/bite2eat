@@ -7,72 +7,78 @@
  * # AboutCtrl
  * Controller of the bite2eatApp
  */
-angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScope) {
+angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootScope) {
 
-		function loadNearByRestaurants() {
-			var Restaurant = Parse.Object.extend("Restaurant");
-			var query = new Parse.Query(Restaurant);
-			query.find({
-				success: function(results) {
-					$scope.$apply(function() {
-						$scope.results = results;
-					});
-				},
-				error: function(error) {
-					alert("Error: " + error.code + " " + error.message);
-				}
-			});
-		};
 
-		$scope.searchInput = function() {
-			var Restaurant = Parse.Object.extend("Restaurant");
-			var query = new Parse.Query(Restaurant);
-			query.containedIn("foodTypes", [$scope.searchValue.toLowerCase()]);
-			query.find({
-				success: function(results) {
-					$scope.$apply(function() {
-						$scope.results = results;
-					});
-				},
-				error: function(error) {
-					alert("Error: " + error.code + " " + error.message);
-				}
-			});
-		};
 
-		$scope.menuItem = function(restaurantId) {
-			var MenuItem = Parse.Object.extend("MenuItem");
-			var query = new Parse.Query(MenuItem);
-			query.equalTo("restaurantId", restaurantId);
-			query.find({
-				success: function(menuItems) {
-					$scope.$apply(function() {
-						$scope.menuItems = menuItems;
-					});
-				},
-				error: function(object, error) {
-					alert("Error: " + error.code + " " + error.message);
-				}
-			});
-		};
+	function loadNearByRestaurants() {
+		var Restaurant = Parse.Object.extend("Restaurant");
+		var userGeoPoint = new Parse.GeoPoint(15.5513688, -88.0125635);
+		var query = new Parse.Query(Restaurant);
+		query.withinKilometers("location", userGeoPoint,5);
+		query.find({
+			success: function(results) {
+				$scope.$apply(function() {
+					$scope.results = results;
+				});
+			},
+			error: function(error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});
+	};
 
-		$scope.addOrder = function() {
-			var Order = Parse.Object.extend("Order");
-			var order = new Order();
+	$scope.searchInput = function() {
+		var Restaurant = Parse.Object.extend("Restaurant");
+		var userGeoPoint = new Parse.GeoPoint(15.5513688, -88.0125635);
+		var query = new Parse.Query(Restaurant);
+		query.containedIn("foodTypes", [$scope.searchValue.toLowerCase()]);
+		query.withinKilometers("location", userGeoPoint,5);
+		query.find({
+			success: function(results) {
+				$scope.$apply(function() {
+					$scope.results = results;
+				});
+			},
+			error: function(error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});
+	};
 
-			order.set("clientName", "Douglas Guerrero");
-			order.set("status", "Pending");
-			order.set("total", 1);
+	$scope.menuItem = function(restaurantId) {
+		var MenuItem = Parse.Object.extend("MenuItem");
+		var query = new Parse.Query(MenuItem);
+		query.equalTo("restaurantId", restaurantId);
+		query.find({
+			success: function(menuItems) {
+				$scope.$apply(function() {
+					$scope.menuItems = menuItems;
+				});
+			},
+			error: function(object, error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});
+	};
 
-			order.save(null, {
-			  success: function(order) {
-			    alert('The order was created successfully');
-			  },
-			  error: function(order, error) {
-			    alert('Failed to create new object, with error code: ' + error.message);
-			  }
-			});
-		};
+	$scope.addOrder = function() {
+		var Order = Parse.Object.extend("Order");
+		var order = new Order();
 
-		loadNearByRestaurants();
-	});
+		order.set("clientName", "Douglas Guerrero");
+		order.set("status", "Pending");
+		order.set("total", 1);
+
+		order.save(null, {
+			success: function(order) {
+				alert('The order was created successfully');
+			},
+			error: function(order, error) {
+				alert('Failed to create new object, with error code: ' + error.message);
+			}
+		});
+	};
+
+	loadNearByRestaurants();
+});
