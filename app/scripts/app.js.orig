@@ -40,15 +40,17 @@ angular
         controller: 'SearchCtrl',
         controllerAs: 'search'
       })
+<<<<<<< HEAD
       .when('/beta/dashboard/orders', {
         templateUrl: 'views/orders.html',
         controller: 'OrdersCtrl',
         controllerAs: 'Orders'
-      })
+=======
       .when('/beta/home', {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
+>>>>>>> a20b06628007ec808617795b5a2eb67da17c4b53
       })
       .otherwise({
         redirectTo: '/'

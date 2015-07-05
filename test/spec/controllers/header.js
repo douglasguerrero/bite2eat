@@ -1,20 +1,20 @@
 // 'use strict';
 
-// describe('Controller: AboutCtrl', function () {
+// describe('Controller: HeaderCtrl', function () {
 
 //   // load the controller's module
 //   beforeEach(module('bite2eatApp'));
 
-//   var AboutCtrl;
+//   var HeaderCtrl;
 
 //   // Initialize the controller and a mock scope
-//   beforeEach(inject(function ($controller) {
-//     AboutCtrl = $controller('AboutCtrl', {
+//   beforeEach(inject(function ($controller, $rootScope) {
+//     HeaderCtrl = $controller('HeaderCtrl', {
 //       // place here mocked dependencies
 //     });
 //   }));
 
 //   it('should attach a list of awesomeThings to the scope', function () {
-//     expect(AboutCtrl.awesomeThings.length).toBe(3);
+//     expect(HeaderCtrl.awesomeThings.length).toBe(3);
 //   });
 // });

@@ -8,13 +8,14 @@
  * Controller of the bite2eatApp
  */
 angular.module('bite2eatApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope,$rootScope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
+    $rootScope.showHeader = false;
     $scope.success = false;
 
     $scope.collectEmail = function(){

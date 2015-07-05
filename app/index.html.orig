@@ -52,6 +52,7 @@
       <div class="all-elements">
         <div class="snap-drawers">
 
+<<<<<<< HEAD
             <!-- Left Sidebar-->
         <div class="snap-drawer snap-drawer-left">
             <!--Sidebar Header-->
@@ -82,6 +83,8 @@
               
         </div>
             
+=======
+>>>>>>> a20b06628007ec808617795b5a2eb67da17c4b53
             <!-- Right Sidebar -->
             <div class="snap-drawer snap-drawer-right">
                 <!--Sidebar Close Button-->
@@ -99,10 +102,25 @@
                 <div class="deco"></div>
             </div>
         </div>
+<<<<<<< HEAD
+      <!-- Page Header -->
+      <div class="header" ng-controller="HeaderCtrl">
+          <a ng-show="showHeader" class="open-nav" href="#"><i class="fa fa-navicon"></i></a> 
+          <!--<a class="header-logo" href="#"></a>-->
+          <a class="header-message" href="#">Bite 2 Eat - Coming Soon!</a>
+          <a class="open-socials" href="#"><i class="fa fa-share-alt"></i></a>
+      </div>
+    
+      <!-- Page Content-->
+      <div id="content" class="snap-content">
+        <div ng-view="">
+        
+=======
 
         <!-- Page Content-->
         <div ng-view="" style="position: initial;">
 
+>>>>>>> a20b06628007ec808617795b5a2eb67da17c4b53
         </div>
       </div>
 
