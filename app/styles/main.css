@@ -107,13 +107,28 @@ body {
 }
 
 .snap-content .row .detail {
-	float: right;
+	/*float: right;
 	width: 80%;
   height: 100%;
   padding-bottom: 10px;
-  background-image: url('../../images/menu/pizza.jpg');
+  */
+  background-image: url('../../images/menu/menu.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+.snap-content .row .detail.noBg {
+  background: transparent;
+}
+
+.snap-content .row .detail .my-loader {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: 500px;
 }
 
 .restaurant {
