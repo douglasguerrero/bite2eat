@@ -14,14 +14,12 @@ angular.module('bite2eatApp')
 			$scope.searchInput = function() {
 					var Restaurant = Parse.Object.extend("Restaurant");
 					var query = new Parse.Query(Restaurant);
-					query.containedIn("foodTypes", [$scope.searchValue]);
+					query.containedIn("foodTypes", [$scope.searchValue.toLowerCase()]);
 					query.find({
 						success: function(results) {
-							alert("Successfully retrieved " + results.length + " scores.");
-							for (var i = 0; i < results.length; i++) {
-								var object = results[i];
-								alert(object.get('foodTypes'));
-							}
+							$scope.$apply(function() {
+								$scope.results = results;
+							});
 						},
 						error: function(error) {
 							alert("Error: " + error.code + " " + error.message);

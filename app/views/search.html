@@ -1,14 +1,46 @@
-<div class="container">
-	<div class="row">
-		<div id="custom-search-input">
-			<div class="input-group col-md-12">
-				<input type="text" class="  search-query form-control" placeholder="Your food choice: pizza, salad" ng-model="searchValue"/>
-				<span class="input-group-btn">
-					<button class="btn btn-danger" type="button" ng-click="searchInput()" >
-					<span class=" glyphicon glyphicon-search"></span>
-					</button>
-				</span>
+<div class="row">
+	<div id="custom-search-input">
+		<div class="col-md-4">
+
+		</div>
+		<div class="input-group col-md-4">
+			<input type="text" class="search-query form-control"
+				placeholder="Your food choice: pizza, salad"
+				ng-model="searchValue"
+				ng-keyup="$event.keyCode == 13 && searchInput()"/>
+			<span class="input-group-btn">
+				<button class="btn btn-danger" type="button" ng-click="searchInput()" >
+				<span class=" glyphicon glyphicon-search"></span>
+				</button>
+			</span>
+		</div>
+	</div>
+</div>
+
+<div class="row fill">
+	<div class="master">
+		<div class="" ng-controller="SearchCtrl" ng-repeat="row in results">
+			<div class="restaurant">
+				<div class="brand-logo">
+					<img class="responsive-image" src="{{row.attributes.brandLogoUrl}}" alt="img">
+				</div>
+
+				<div class="data">
+					<h3>{{row.attributes.name}}</h3>
+	        <p>
+						Address: {{row.attributes.address}} <br>
+						Phone: {{row.attributes.phone}}
+					</p>
+					<div class="load-details">
+
+					</div>
+				</div>
 			</div>
 		</div>
+
+	</div>
+
+	<div class="detail">
+
 	</div>
 </div>
