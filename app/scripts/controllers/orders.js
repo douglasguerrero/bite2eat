@@ -23,10 +23,11 @@ angular.module('bite2eatApp')
     $scope.open = function (size,order) {
 
 	    var modalInstance = $modal.open({
-	      animation: $scope.animationsEnabled,
+	      animation: false,
 	      templateUrl: '/views/orderdetail.html',
 	      controller: 'OrderdetailCtrl',
 	      size: size,
+	      windowClass: 'modalCustom',
 	       resolve: {
 	        order: function () {
 	          return order;
