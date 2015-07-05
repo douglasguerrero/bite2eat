@@ -58,7 +58,7 @@
             <div class="sidebar-header">
                 <a href="#" class="sidebar-logo"></a>
                 <a href="#" class="sidebar-close"><i class="fa fa-times"></i></a>
-            </div>            
+            </div>
             <div class="deco"></div>
             <!--Page Breadcrumb-->
             <div class="breadcrumb">Menu</div>
@@ -77,11 +77,11 @@
                 <i class="fa fa-circle"></i>
             </a>
             <div class="deco"></div>
-            
-           
-              
+
+
+
         </div>
-            
+
             <!-- Right Sidebar -->
             <div class="snap-drawer snap-drawer-right">
                 <!--Sidebar Close Button-->
@@ -100,9 +100,29 @@
             </div>
         </div>
 
-        <!-- Page Content-->
-        <div ng-view="" style="position: initial;">
+        <!-- Page Header -->
+        <div class="header" ng-class="{center: showCentered}">
+          <a ng-show="showHeader" class="open-nav" href="#"><i class="fa fa-navicon"></i></a>
+          <a class="header-logo" href="#/"></a>
 
+          <div class="input-group col-md-4" ng-show="showSearch" ng-controller="SearchBarCtrl">
+        		<input type="text" class="search-query form-control" placeholder="Your food choice: pizza, salad" ng-model="searchValue" ng-keyup="$event.keyCode == 13 && triggerSearch()" />
+        		<span class="input-group-btn">
+        			<button class="btn btn-danger" type="button" ng-click="triggerSearch()">
+        			<span class=" glyphicon glyphicon-search"></span>
+        			</button>
+        		</span>
+        	</div>
+
+
+          <a class="open-socials" href="#"><i class="fa fa-share-alt"></i></a>
+        </div>
+
+        <!-- Page Content-->
+        <div id="content" class="snap-content">
+          <div ng-view="" style="position: initial;">
+
+          </div>
         </div>
       </div>
 
@@ -146,6 +166,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/search.js"></script>
+        <script src="scripts/controllers/searchBar.js"></script>
         <script src="scripts/controllers/orders.js"></script>
         <script src="scripts/controllers/header.js"></script>
         <!-- endbuild -->

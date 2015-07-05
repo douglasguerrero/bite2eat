@@ -9,10 +9,17 @@
  */
 angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScope) {
 
-		$scope.searchInput = function() {
+		$rootScope.showSearch = true;
+		$rootScope.showHeader = true;
+
+		$scope.$on('doSearch', function(ev, args) {
+			$scope.searchInput(args.searchValue);
+		});
+
+		$scope.searchInput = function(value) {
 			var Restaurant = Parse.Object.extend("Restaurant");
 			var query = new Parse.Query(Restaurant);
-			query.containedIn("foodTypes", [$scope.searchValue.toLowerCase()]);
+			query.containedIn("foodTypes", [value.toLowerCase()]);
 			query.find({
 				success: function(results) {
 					console.log(results);

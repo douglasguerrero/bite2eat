@@ -16,6 +16,7 @@ angular.module('bite2eatApp')
     ];
 
     $rootScope.showHeader = true;
+    $rootScope.showSearch = false;
 
     $scope.orders = []
 
@@ -34,7 +35,7 @@ angular.module('bite2eatApp')
 				      	total: object.get('total')
 				      });
 	          	});
-		      
+
 		    }
 		  },
 		  error: function(error) {
@@ -43,5 +44,5 @@ angular.module('bite2eatApp')
 		});
     };
 
-    
+
   });
