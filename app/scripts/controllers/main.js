@@ -16,6 +16,8 @@ angular.module('bite2eatApp')
     ];
 
     $rootScope.showHeader = false;
+    $rootScope.showCentered = true;
+    $rootScope.showSearch = false;
     $scope.success = false;
 
     $scope.collectEmail = function(){

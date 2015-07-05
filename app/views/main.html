@@ -1,44 +1,33 @@
-<!-- Page Header -->
-<div class="header center">
-    <!-- <a class="open-nav" href="#"><i class="fa fa-navicon"></i></a> -->
-    <a class="header-logo" href="#/"></a>
-
-    <a class="open-socials" href="#"><i class="fa fa-share-alt"></i></a>
-</div>
-
-<div id="content" class="snap-content">
-
-  <div class="coverpage coverpage-bg3 coverpage-construction" style="height:100vh;">
-    <div class="coverpage-content">
-        <h1>Order food from restaurants nearby your location</h1>
-        <h4>We're still building this awesome service</h4>
-        <h3></h3>
-        <p>
-            This service is curently under construction, but feel
-            free to give us your email so we can let you know once we finish!
-        </p>
-        <div class="row">
-          <div class="col-md-3">
-          </div>
-          <div class="col-md-6">
-              <form  name="collectForm" class="contactForm" ng-hide="success">
-                <fieldset>
-                  <div class="formFieldWrap">
-                      <input required ng-model="email" placeholder="Enter your email address" type="email" name="email" value="" class="contactField contactEmailField requiredField" id="contactEmailField">
-                  </div>
-                  <div class="formSubmitButtonErrorsWrap">
-                      <input type="button" ng-click="collectEmail()" ng-disabled="collectForm.$invalid" class="button center-button button-green detected-button" id="contactSubmitButton" value="Let me know!">
-                  </div>
-                </fieldset>
-              </form>
-              <div class="static-notification-green" ng-show="success">
-                    <p class="center-text" style="width:80% !important">Thank you! We got your email. We will contact you when we are ready.</p>
-              </div>
-          </div>
-          <div class="col-md-3">
-          </div>
+<div class="coverpage coverpage-bg3 coverpage-construction" style="height:100vh;">
+  <div class="coverpage-content">
+      <h1>Order food from restaurants nearby your location</h1>
+      <h4>We're still building this awesome service</h4>
+      <h3></h3>
+      <p>
+          This service is curently under construction, but feel
+          free to give us your email so we can let you know once we finish!
+      </p>
+      <div class="row">
+        <div class="col-md-3">
         </div>
-    </div>
-  <div class="overlay"></div>
+        <div class="col-md-6">
+            <form  name="collectForm" class="contactForm" ng-hide="success">
+              <fieldset>
+                <div class="formFieldWrap">
+                    <input required ng-model="email" placeholder="Enter your email address" type="email" name="email" value="" class="contactField contactEmailField requiredField" id="contactEmailField">
+                </div>
+                <div class="formSubmitButtonErrorsWrap">
+                    <input type="button" ng-click="collectEmail()" ng-disabled="collectForm.$invalid" class="button center-button button-green detected-button" id="contactSubmitButton" value="Let me know!">
+                </div>
+              </fieldset>
+            </form>
+            <div class="static-notification-green" ng-show="success">
+                  <p class="center-text" style="width:80% !important">Thank you! We got your email. We will contact you when we are ready.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
   </div>
+<div class="overlay"></div>
 </div>

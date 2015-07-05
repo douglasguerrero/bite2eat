@@ -9,13 +9,17 @@
  */
 angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootScope) {
 
+	$rootScope.showSearch = true;
+	$rootScope.showHeader = true;
+	$scope.noResults = true;
 
+	$scope.$on('doSearch', function(ev, args) {
+		$scope.searchInput(args.searchValue);
+	});
 
 	function loadNearByRestaurants() {
 		var Restaurant = Parse.Object.extend("Restaurant");
-		var userGeoPoint = new Parse.GeoPoint(15.5513688, -88.0125635);
 		var query = new Parse.Query(Restaurant);
-		query.withinKilometers("location", userGeoPoint,5);
 		query.find({
 			success: function(results) {
 				$scope.$apply(function() {
@@ -28,12 +32,29 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootSco
 		});
 	};
 
-	$scope.searchInput = function() {
+	$scope.searchInput = function(value) {
 		var Restaurant = Parse.Object.extend("Restaurant");
 		var userGeoPoint = new Parse.GeoPoint(15.5513688, -88.0125635);
 		var query = new Parse.Query(Restaurant);
-		query.containedIn("foodTypes", [$scope.searchValue.toLowerCase()]);
-		query.withinKilometers("location", userGeoPoint,5);
+		query.containedIn("foodTypes", [value.toLowerCase()]);
+		query.withinKilometers("location", userGeoPoint, 5);
+		query.find({
+			success: function(results) {
+				$scope.$apply(function() {
+					$scope.results = results;
+				});
+			},
+			error: function(error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});
+	};
+
+	function loadNearByRestaurants() {
+		var Restaurant = Parse.Object.extend("Restaurant");
+		var userGeoPoint = new Parse.GeoPoint(15.5513688, -88.0125635);
+		var query = new Parse.Query(Restaurant);
+		query.withinKilometers("location", userGeoPoint, 5);
 		query.find({
 			success: function(results) {
 				$scope.$apply(function() {
@@ -54,6 +75,7 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootSco
 			success: function(menuItems) {
 				$scope.$apply(function() {
 					$scope.menuItems = menuItems;
+					$scope.noResults = menuItems.length === 0;
 				});
 			},
 			error: function(object, error) {

@@ -16,4 +16,6 @@ angular.module('bite2eatApp')
     ];
 
     $rootScope.showHeader = true;
+    $rootScope.showCentered = false;
+    $rootScope.showSearch = false;
   });

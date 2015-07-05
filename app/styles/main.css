@@ -9,6 +9,10 @@ body {
   padding: 0;
 }
 
+.modalCustom{
+  margin-top: 50px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -117,6 +121,15 @@ body {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #d6d6d6;
+  opacity: 0.5;
+}
+
+.restaurant:hover {
+  opacity: 1;
+}
+
+.restaurant.active {
+  opacity: 1;
 }
 
 .restaurant p{
@@ -138,6 +151,14 @@ body {
 
 .restaurant .data h3 {
   margin-top: 5px;
+}
+
+.restaurant:hover .data h3 {
+  font-size: 17.5px;
+}
+
+.restaurant.active .data h3 {
+  font-size: 17.5px;
 }
 
 .restaurant .load-details {
