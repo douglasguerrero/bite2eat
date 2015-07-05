@@ -1,5 +1,5 @@
 <div class="row fill">
-	<div class="master">
+	<div class="col-md-3">
 		<div class="" ng-repeat="row in results">
 			<div class="restaurant" ng-click="menuItem(row.id)" ng-class="{active: (row.id == activeId)}">
 				<div class="brand-logo">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="detail" ng-class="{noBg: noResults}">
+	<div class="detail col-md-9" ng-class="{noBg: noResults}">
 		<div id="preloader" class="my-loader" ng-hide="!loading">
 			<div class="loader-status">
 		    	<p class="center-text">
@@ -45,6 +45,6 @@
 					</em>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
 </div>
