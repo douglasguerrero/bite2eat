@@ -20,19 +20,31 @@
 			</div>
 		</div>
 	</div>
-	<div class="detail" ng-hide="noResults">
-		<div ng-repeat="item in menuItems">
-			<div class="item-menu-image">
-				<img src="{{item.attributes.itemImageUrl}}" alt="img">
-			</div>
-			<div style="padding-left:20px">
-				<h3 class="title">{{item.attributes.name}}</h3>
-     <em>
-     {{item.attributes.description}}
-     <br> <b>Lps. {{item.attributes.price}}</b>
-     <br>
-     <a class="button left-button button-green full-bottom detected-button" type="button" ng-click="addOrder()" style="margin-left: 200px;">Order</a>
-     </em>
+	<div class="detail" ng-class="{noBg: noResults}">
+		<div id="preloader" class="my-loader" ng-hide="!loading">
+			<div class="loader-status">
+		    	<p class="center-text">
+					Loading the content...
+		            <em>Loading depends on your connection speed!</em>
+		        </p>
+		    </div>
 		</div>
+
+		<div ng-hide="noResults">
+			<div ng-repeat="item in menuItems" >
+				<div class="item-menu-image">
+					<img src="{{item.attributes.itemImageUrl}}" alt="img">
+				</div>
+				<div style="padding-left:20px">
+					<h3 class="title">{{item.attributes.name}}</h3>
+					<em>
+						{{item.attributes.description}}
+						<br> <b>Lps. {{item.attributes.price}}</b>
+						<br>
+						<a class="button left-button button-green full-bottom detected-button" type="button" ng-click="addOrder()" style="margin-left: 200px;">Order</a>
+					</em>
+				</div>
+			</div>
+		</div>		
 	</div>
 </div>
