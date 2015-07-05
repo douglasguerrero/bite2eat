@@ -27,12 +27,13 @@
 					<p>
 						Address: {{row.attributes.address}}
 						<br> Phone: {{row.attributes.phone}}
+						<span ng-show="{{row.attributes.delivery}}"><br> Delivery Available <i class="tick-list delivery"></i></span>
+						<span ng-show="!{{row.attributes.delivery}}"><br> Delivery Unavailable <i class="delete-list delivery"></i></span>
 					</p>
 				</div>
 
 				<div class="next-quote" ng-click="menuItem(row.id)">
 				</div>
-
 			</div>
 		</div>
 
