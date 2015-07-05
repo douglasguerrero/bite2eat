@@ -41,6 +41,20 @@
 	</div>
 
 	<div class="detail">
-
+		<div ng-repeat="row in menuItems">
+	<div class="item-menu-image">
+                    <img src="{{row.attributes.itemImageUrl}}" alt="img">
+                </div>
+                    <div style="padding-left:20px">
+                    <h3 class="title">{{row.attributes.name}}</h3>
+                    <em>
+                        {{row.attributes.description}}
+                    </em>
+                    </div>
+                    <a href="#" class="button center-button button-green full-bottom detected-button">Order</a>
+                    
+			
+		</div>
+		</div>
 	</div>
 </div>
