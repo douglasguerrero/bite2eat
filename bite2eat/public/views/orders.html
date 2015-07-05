@@ -1,0 +1,22 @@
+<div class="container no-bottom" ng-init="loadOrders()">
+               <h3>Orders</h3>
+               <p>This are all your orders your clients have made!</p>
+               <table cellspacing='0' class="table">
+                    <tr>
+                        <th>Order Number</th>
+                        <th class="table-title">Client</th>
+                        <th class="table-title">Status</th>
+                        <th class="table-title">Total</th>
+                    </tr>
+                    <tr ng-repeat="order in orders">
+                        <td class="table-sub-title">
+                           <a href="" ng-click="open('md',order)">{{order.objectId}}</a>
+                        </td>
+                        <td>{{order.clientName}}</td>
+                        <td>{{order.status}}</td>
+                        <td class="price">{{order.total}}</td>
+                    </tr>
+                </table>
+            </div>  
+            <div class="decoration"></div>
+</div>

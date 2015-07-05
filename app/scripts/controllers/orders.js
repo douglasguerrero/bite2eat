@@ -24,7 +24,7 @@ angular.module('bite2eatApp')
 
 	    var modalInstance = $modal.open({
 	      animation: false,
-	      templateUrl: '/views/orderdetail.html',
+	      templateUrl: 'views/orderdetail.html',
 	      controller: 'OrderdetailCtrl',
 	      size: size,
 	      windowClass: 'modalCustom',
