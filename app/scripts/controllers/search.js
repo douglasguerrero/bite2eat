@@ -32,7 +32,7 @@ angular.module('bite2eatApp')
 			console.log(restaurantId);
 			var MenuItem = Parse.Object.extend("MenuItem");
 			var query = new Parse.Query(MenuItem);
-			query.equalTo("restaurantId", "hDCzzgm1Xa");
+			query.equalTo("restaurantId", restaurantId);
 			query.find({
 				success: function(menuItems) {
 					$scope.$apply(function() {
