@@ -15,7 +15,6 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScop
 			query.containedIn("foodTypes", [$scope.searchValue.toLowerCase()]);
 			query.find({
 				success: function(results) {
-					console.log(results);
 					$scope.$apply(function() {
 						$scope.results = results;
 					});
@@ -27,7 +26,6 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScop
 		};
 
 		$scope.menuItem = function(restaurantId) {
-			console.log(restaurantId);
 			var MenuItem = Parse.Object.extend("MenuItem");
 			var query = new Parse.Query(MenuItem);
 			query.equalTo("restaurantId", restaurantId);
@@ -40,6 +38,24 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScop
 				error: function(object, error) {
 					alert("Error: " + error.code + " " + error.message);
 				}
+			});
+		};
+
+		$scope.addOrder = function() {
+			var Order = Parse.Object.extend("Order");
+			var order = new Order();
+
+			order.set("clientName", "Douglas Guerrero");
+			order.set("status", "Pending");
+			order.set("total", 1);
+
+			order.save(null, {
+			  success: function(order) {
+			    alert('The order was created successfully');
+			  },
+			  error: function(order, error) {
+			    alert('Failed to create new object, with error code: ' + error.message);
+			  }
 			});
 		};
 	});
