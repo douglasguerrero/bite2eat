@@ -49,6 +49,7 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScop
 		};
 
 		$scope.menuItem = function(restaurantId) {
+			$scope.activeId = restaurantId;
 			var MenuItem = Parse.Object.extend("MenuItem");
 			var query = new Parse.Query(MenuItem);
 			query.equalTo("restaurantId", restaurantId);

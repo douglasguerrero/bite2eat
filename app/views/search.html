@@ -1,7 +1,7 @@
 <div class="row fill">
 	<div class="master">
 		<div class="" ng-repeat="row in results">
-			<div class="restaurant">
+			<div class="restaurant" ng-click="menuItem(row.id)" ng-class="{active: (row.id == activeId)}">
 				<div class="brand-logo">
 					<img class="responsive-image" src="{{row.attributes.brandLogoUrl}}" alt="img">
 				</div>
@@ -15,7 +15,7 @@
 						<span ng-show="{{row.attributes.estimated}}"><br><i> Estimated time: {{row.attributes.estimated}} min </i></span>
 
 				</div>
-				<div class="next-quote" ng-click="menuItem(row.id)">
+				<div class="next-quote">
 				</div>
 			</div>
 		</div>
