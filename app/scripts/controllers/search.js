@@ -28,7 +28,7 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootSco
 				});
 			},
 			error: function(error) {
-				alert("Error: " + error.code + " " + error.message);
+				swal('Oops', 'Failed with error code ' + error.message, 'error');
 			}
 		});
 	};
@@ -46,7 +46,7 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootSco
 				});
 			},
 			error: function(error) {
-				alert("Error: " + error.code + " " + error.message);
+				swal('Oops', 'Failed with error code ' + error.message, 'error');
 			}
 		});
 	};
@@ -63,7 +63,7 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootSco
 				});
 			},
 			error: function(error) {
-				alert("Error: " + error.code + " " + error.message);
+				swal('Oops', 'Failed with error code ' + error.message, 'error');
 			}
 		});
 	};
@@ -86,7 +86,7 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootSco
 
 			},
 			error: function(object, error) {
-				alert("Error: " + error.code + " " + error.message);
+				swal('Oops', 'Failed with error code ' + error.message, 'error');
 				$scope.$apply(function() {
 					$scope.loading = false;
 				});
@@ -104,10 +104,14 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope, $rootSco
 
 		order.save(null, {
 			success: function(order) {
-				alert('The order was created successfully');
+				swal({
+					title: "Done!",
+					text: "Your order has been received",
+					imageUrl: "images/plate.png"
+				});
 			},
 			error: function(order, error) {
-				alert('Failed to create new object, with error code: ' + error.message);
+				swal('Oops', 'Failed to create new object, with error code ' + error.message, 'error');
 			}
 		});
 	};
