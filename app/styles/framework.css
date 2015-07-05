@@ -3266,15 +3266,12 @@ table tr:hover td{
 	margin-right:20px;
 	margin-top:6px;
 	margin-bottom:0px;
-	float:left;
 	display:inline;
 }
 
 .notification-page-item img{
-	width:50px;
-	height:50px;
-	border-radius:50px;
-	float:left;
+	width:10px;
+	height:100%;
 	display:inline;
 	margin-right:20px;
 	margin-top:6px;
@@ -3308,7 +3305,6 @@ table tr:hover td{
 @media (min-width:768px){
 	.notification-page-item{
 		width:45%;
-		float:left;
 		margin-right:2.5%;
 		margin-left:2.5%;
 	}
@@ -3589,4 +3585,16 @@ table tr:hover td{
   -ms-user-select: none;      /* IE 10+ */
   -o-user-select: none;
   user-select: none;
+}
+
+.item-menu-image{
+	
+	float:left; 
+}
+
+.item-menu-image img {
+	height: 100px;
+
+	margin-top:10px;
+	margin-left:30px;
 }

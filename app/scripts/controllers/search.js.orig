@@ -7,7 +7,31 @@
  * # AboutCtrl
  * Controller of the bite2eatApp
  */
-angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScope) {
+angular.module('bite2eatApp')
+<<<<<<< HEAD
+	.controller('SearchCtrl', function($scope,$rootScope) {
+			Parse.initialize("WSA1398Zaliy9pauhvHEg5uzfvrqwH1bXdmwRW7e", "4EiQQjH6Hm6Lfnl172GMNDCorWyghusvACWEhg9I");
+
+$rootScope.showHeader = true;
+
+			$scope.searchInput = function() {
+					var Restaurant = Parse.Object.extend("Restaurant");
+					var query = new Parse.Query(Restaurant);
+					query.containedIn("foodTypes", [$scope.searchValue]);
+					query.find({
+						success: function(results) {
+							alert("Successfully retrieved " + results.length + " scores.");
+							for (var i = 0; i < results.length; i++) {
+								var object = results[i];
+								alert(object.get('foodTypes'));
+							}
+						},
+						error: function(error) {
+							alert("Error: " + error.code + " " + error.message);
+						}
+=======
+	.controller('SearchCtrl', function($scope) {
+		Parse.initialize("WSA1398Zaliy9pauhvHEg5uzfvrqwH1bXdmwRW7e", "4EiQQjH6Hm6Lfnl172GMNDCorWyghusvACWEhg9I");
 
 		$scope.searchInput = function() {
 			var Restaurant = Parse.Object.extend("Restaurant");
@@ -18,6 +42,7 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScop
 					console.log(results);
 					$scope.$apply(function() {
 						$scope.results = results;
+>>>>>>> a20b06628007ec808617795b5a2eb67da17c4b53
 					});
 				},
 				error: function(error) {
