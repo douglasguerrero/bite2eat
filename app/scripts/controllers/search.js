@@ -12,6 +12,7 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScop
 		$rootScope.showSearch = true;
 		$rootScope.showHeader = true;
 		$scope.noResults = true;
+		$scope.loading = false;
 
 		$scope.$on('doSearch', function(ev, args) {
 			$scope.searchInput(args.searchValue);
@@ -50,18 +51,26 @@ angular.module('bite2eatApp').controller('SearchCtrl', function($scope,$rootScop
 
 		$scope.menuItem = function(restaurantId) {
 			$scope.activeId = restaurantId;
+			$scope.noResults = true;
+			$scope.loading = true;
+
 			var MenuItem = Parse.Object.extend("MenuItem");
 			var query = new Parse.Query(MenuItem);
 			query.equalTo("restaurantId", restaurantId);
 			query.find({
 				success: function(menuItems) {
 					$scope.$apply(function() {
-						$scope.menuItems = menuItems;
 						$scope.noResults = menuItems.length === 0;
+						$scope.menuItems = menuItems;
+						$scope.loading = false;
 					});
+
 				},
 				error: function(object, error) {
 					alert("Error: " + error.code + " " + error.message);
+					$scope.$apply(function() {
+						$scope.loading = false;
+					});
 				}
 			});
 		};
