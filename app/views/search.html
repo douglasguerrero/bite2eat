@@ -16,7 +16,7 @@
 
 <div class="row fill">
 	<div class="master">
-		<div class="" ng-controller="SearchCtrl" ng-repeat="row in results" ng-init="results = []">
+		<div class="" ng-repeat="row in results">
 			<div class="restaurant">
 				<div class="brand-logo">
 					<img class="responsive-image" src="{{row.attributes.brandLogoUrl}}" alt="img">
@@ -39,7 +39,7 @@
 	</div>
 
 	<div class="detail">
-		<div ng-controller="SearchCtrl" ng-repeat="item in menuItems" ng-init="menuItems = []">
+		<div ng-repeat="item in menuItems">
 			<div class="item-menu-image">
 				<img src="{{item.attributes.itemImageUrl}}" alt="img">
 			</div>
